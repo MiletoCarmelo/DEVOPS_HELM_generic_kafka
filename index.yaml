@@ -3,6 +3,16 @@ entries:
   generic-kafka-backend:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2024-12-02T21:43:33.516670526Z"
+    description: A Helm chart for kubernetes - Generic kafka backend
+    digest: 746cf060e8e1fef662e41dc7b3119557eedd2160ea6cbe7632a94649ffa72c61
+    name: generic-kafka-backend
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/generic-kafka-backend-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2024-12-02T21:41:03.792599424Z"
     description: A Helm chart for kubernetes - Generic kafka backend
     digest: d7ce4df24259683e62eeb9a959e2fca327c931bb80642e72023ecc610af0c1cd
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/generic-kafka-backend-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-02T21:41:03.791423943Z"
+generated: "2024-12-02T21:43:33.514804384Z"
