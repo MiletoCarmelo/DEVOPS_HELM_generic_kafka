@@ -43,3 +43,6 @@ zookeeper:
   persistence:
     enabled: true
     size: 5Gi
+
+server: 
+  file: "server.properties"

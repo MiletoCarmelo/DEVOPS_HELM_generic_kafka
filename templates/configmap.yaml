@@ -1,13 +1,10 @@
-# configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-config
   namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/instance: {{ .Values.module }}-{{ .Values.environment }}
 data:
   server.properties: |
-    num.partitions=3
-    default.replication.factor=3
-    min.insync.replicas=2
-    log.retention.hours=168
-    zookeeper.connect=zookeeper:2181
+    {{ .Files.Get .Values.filePath | indent 4 }}
