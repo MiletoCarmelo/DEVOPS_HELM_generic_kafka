@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-config
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.module }}-{{ .Values.environment }}
   labels:
     app.kubernetes.io/instance: {{ .Values.module }}-{{ .Values.environment }}
 data:
