@@ -8,6 +8,7 @@ metadata:
   name: {{ .Values.module }}-{{ .Values.environment }}-deployment
   namespace: {{ .Values.module }}-{{ .Values.environment }}
 spec:
+  progressDeadlineSeconds: 600  # 10 minutes au lieu des 10 minutes par défaut
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
@@ -26,6 +27,16 @@ spec:
             {{- toYaml .Values.containers.resources | nindent 12 }}
           volumeMounts:
             {{- toYaml .Values.volumeMounts | nindent 12 }}
+          readinessProbe:
+            tcpSocket:
+              port: 9092
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 9092
+            initialDelaySeconds: 60
+            periodSeconds: 20
       {{- if .Values.volumes }}
       volumes:
         {{- toYaml .Values.volumes | nindent 12 }}
