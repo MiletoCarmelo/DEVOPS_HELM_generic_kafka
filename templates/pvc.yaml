@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: afka-data
+  name: kafka-data
   namespace: {{ .Values.module }}-{{ .Values.environment }}
   labels:
     {{- include "label-generator" . | nindent 4 }}
