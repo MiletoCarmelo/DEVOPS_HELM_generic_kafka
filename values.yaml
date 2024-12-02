@@ -30,6 +30,9 @@ volumes:
     configMap:
       name: kafka-config
 
+persistentVolume:
+  size: 1Gi
+
 volumeMounts:
   - name: kafka-data
     mountPath: /bitnami/kafka/data
@@ -43,6 +46,7 @@ zookeeper:
   persistence:
     enabled: true
     size: 5Gi
+    
 
 server: 
   file: "server.properties"
