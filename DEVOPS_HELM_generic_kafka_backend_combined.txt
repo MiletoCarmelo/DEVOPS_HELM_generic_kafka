@@ -32,6 +32,9 @@ volumes:
     configMap:
       name: kafka-config
 
+persistentVolume:
+  size: 1Gi
+
 volumeMounts:
   - name: kafka-data
     mountPath: /bitnami/kafka/data
@@ -45,6 +48,11 @@ zookeeper:
   persistence:
     enabled: true
     size: 5Gi
+    
+
+server: 
+  file: "server.properties"
+
 
 ==== ./Chart.yaml ====
 
@@ -65,13 +73,13 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.0
+version: 0.1.2
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "1.0.0"
+appVersion: "1.1.0"
 
 ==== ./.github/workflows/ci.yml ====
 
@@ -179,19 +187,16 @@ jobs:
 
 ==== ./templates/configmap.yaml ====
 
-# configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-config
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.module }}-{{ .Values.environment }}
+  labels:
+    app.kubernetes.io/instance: {{ .Values.module }}-{{ .Values.environment }}
 data:
   server.properties: |
-    num.partitions=3
-    default.replication.factor=3
-    min.insync.replicas=2
-    log.retention.hours=168
-    zookeeper.connect=zookeeper:2181
+{{ .Files.Get .Values.server.file | indent 4 }}
 
 ==== ./templates/service.yaml ====
 
@@ -223,7 +228,7 @@ metadata:
     {{-  include "label-generator" . | nindent 4 }}
     module: {{ .Values.module }}
   name: {{ .Values.module }}-{{ .Values.environment }}-deployment
-  namespace: {{ .Values.environment | default "generic" }}
+  namespace: {{ .Values.module }}-{{ .Values.environment }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
@@ -243,4 +248,21 @@ spec:
             {{- toYaml .Values.containers.resources | nindent 12 }}
           volumeMounts:
             {{- toYaml .Values.volumeMounts | nindent 12 }}
+
+==== ./templates/pvc.yaml ====
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kafka-data
+  namespace: {{ .Values.module }}-{{ .Values.environment }}
+  labels:
+    {{- include "label-generator" . | nindent 4 }}
+    module: {{ .Values.module }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.persistentVolume.size | default "1Gi" }}
 
