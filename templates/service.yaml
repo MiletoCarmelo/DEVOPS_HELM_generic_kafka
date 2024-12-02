@@ -1,0 +1,17 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.module }}-{{ .Values.environment }}-service
+  labels:
+    {{-  include "label-generator" . | nindent 4 }}
+    module: {{ .Values.module }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      protocol: TCP
+      name: kafka
+  selector:
+    app: {{ .Values.module }}-{{ .Values.environment }}

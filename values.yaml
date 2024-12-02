@@ -1,0 +1,45 @@
+# values.yaml
+module: kafka
+environment: generic
+replicas: 3
+
+containers:
+  name: kafka
+  image: bitnami/kafka
+  tags: latest
+  ports:
+    containerPort: 9092
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "500m"
+    limits:
+      memory: "2Gi"
+      cpu: "1000m"
+
+service:
+  type: ClusterIP
+  port: 9092
+  targetPort: 9092
+
+volumes:
+  - name: kafka-data
+    persistentVolumeClaim:
+      claimName: kafka-data
+  - name: kafka-config
+    configMap:
+      name: kafka-config
+
+volumeMounts:
+  - name: kafka-data
+    mountPath: /bitnami/kafka/data
+  - name: kafka-config
+    mountPath: /opt/bitnami/kafka/config/server.properties
+    subPath: server.properties
+
+zookeeper:
+  enabled: true
+  replicaCount: 3
+  persistence:
+    enabled: true
+    size: 5Gi

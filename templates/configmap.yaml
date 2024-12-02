@@ -1,0 +1,13 @@
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-config
+  namespace: {{ .Release.Namespace }}
+data:
+  server.properties: |
+    num.partitions=3
+    default.replication.factor=3
+    min.insync.replicas=2
+    log.retention.hours=168
+    zookeeper.connect=zookeeper:2181
