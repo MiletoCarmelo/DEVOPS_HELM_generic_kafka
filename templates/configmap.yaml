@@ -7,4 +7,4 @@ metadata:
     app.kubernetes.io/instance: {{ .Values.module }}-{{ .Values.environment }}
 data:
   server.properties: |
-    {{ .Files.Get .Values.server.file | indent 4 }}
+{{ .Files.Get .Values.server.file | indent 4 }}
