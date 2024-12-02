@@ -2,6 +2,7 @@
 TODO check if empty .value.Module
 */}}
 
+
 {{- define "label-generator" -}}
 {{- if .Values.module -}}
 app.kubernetes.io/component: backend-dagster-{{.Values.module}}-{{ .Values.environment }}
