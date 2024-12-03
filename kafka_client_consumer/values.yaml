@@ -1,0 +1,19 @@
+# values.yaml
+image:
+  repository: bitnami/kafka
+  # Version spécifique connue pour supporter ARM64
+  tag: "3.6.1"
+  # Spécifier l'architecture si nécessaire
+  platform: "linux/arm64"
+
+kafkaBootstrapServers: "kafka-service:9092"
+topic: "finance-price-stream"
+
+resources:
+  # Ajusté pour Raspberry Pi 5
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi

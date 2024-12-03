@@ -1,0 +1,28 @@
+# templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-console-consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-console-consumer
+  template:
+    metadata:
+      labels:
+        app: kafka-console-consumer
+    spec:
+      containers:
+      - name: consumer
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        command: 
+        - "/bin/bash"
+        - "-c"
+        - |
+          kafka-console-consumer.sh \
+            --bootstrap-server {{ .Values.kafkaBootstrapServers }} \
+            --topic {{ .Values.topic }} \
+            --from-beginning
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}

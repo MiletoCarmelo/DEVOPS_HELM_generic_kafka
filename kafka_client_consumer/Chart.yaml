@@ -1,0 +1,6 @@
+# Chart.yaml
+apiVersion: v2
+name: kafka-client-consumer
+description: A simple Kafka console consumer chart
+version: 0.1.0
+type: application
