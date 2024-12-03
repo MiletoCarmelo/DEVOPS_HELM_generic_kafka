@@ -22,7 +22,7 @@ jobs:
           ref: main
 
       - name: Print pwd 
-        run: pwd
+        run: ls -la
 
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@master
