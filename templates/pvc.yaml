@@ -10,6 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: {{ .Values.persistentVolume.storageClassName | default "local-path" }}
+  volumeMode: Filesystem
   resources:
     requests:
       storage: {{ .Values.persistentVolume.size | default "1Gi" }}
