@@ -2,5 +2,5 @@
 apiVersion: v2
 name: generic-kafka-client-consumer
 description: A simple Kafka console consumer chart
-version: 0.1.0
+version: 0.1.1
 type: application
