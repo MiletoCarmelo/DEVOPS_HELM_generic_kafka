@@ -22,6 +22,8 @@ service:
   port: 9092
   targetPort: 9092
 
+storageClassName: local-path  # Changez cette ligne de "standard" à "local-path"
+
 volumes:
   - name: kafka-data
     persistentVolumeClaim:

@@ -9,6 +9,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: {{ .Values.storageClassName }}
   resources:
     requests:
       storage: {{ .Values.persistentVolume.size | default "1Gi" }}
