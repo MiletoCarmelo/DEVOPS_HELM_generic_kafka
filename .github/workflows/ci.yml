@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: 
+    branches:
       - main
 
 env:
@@ -10,10 +10,9 @@ env:
 
 permissions:
   contents: write
-  packages: write  # Allows pushing images to the GitHub Container Registry
 
 jobs:
-  release-chart:
+  release-charts:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main branch
@@ -21,20 +20,23 @@ jobs:
         with:
           ref: main
 
-      - name: Print pwd 
-        run: ls -la
+      - name: Debug directory content
+        run: |
+          ls -la
+          echo "Content of kafka_backend:"
+          ls -la kafka_backend/
+          echo "Content of kafka_client_consumer:"
+          ls -la kafka_client_consumer/
 
-      - name: Publish Helm chart
+      - name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          charts_dir: kafka_backend
+          charts_dir: .  # Point vers le répertoire racine
           target_dir: .
           branch: ${{ env.BRANCH_PAGES }}
           charts_url: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.BRANCH_PAGES }}
           linting: false
-          
-      - name: summary 
-        run: echo "https://raw.githubusercontent.com/${{ github.repository }}/${{ env.BRANCH_PAGES }}"
-      
 
+      - name: Summary
+        run: echo "Charts published to https://raw.githubusercontent.com/${{ github.repository }}/${{ env.BRANCH_PAGES }}"
