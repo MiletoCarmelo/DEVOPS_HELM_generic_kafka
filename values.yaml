@@ -22,7 +22,9 @@ service:
   port: 9092
   targetPort: 9092
 
-storageClassName: local-path  # Changez cette ligne de "standard" à "local-path"
+persistentVolume:
+  size: 1Gi
+  storageClassName: local-path  # Changez cette ligne de "standard" à "local-path"
 
 volumes:
   - name: kafka-data
@@ -31,9 +33,6 @@ volumes:
   - name: kafka-config
     configMap:
       name: kafka-config
-
-persistentVolume:
-  size: 1Gi
 
 volumeMounts:
   - name: kafka-data

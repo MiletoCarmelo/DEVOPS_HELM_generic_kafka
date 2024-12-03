@@ -9,7 +9,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: {{ .Values.storageClassName }}
+  storageClassName: {{ .Values.persistentVolume.storageClassName | default "local-path" }}
   resources:
     requests:
       storage: {{ .Values.persistentVolume.size | default "1Gi" }}
