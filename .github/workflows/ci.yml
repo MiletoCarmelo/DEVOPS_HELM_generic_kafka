@@ -24,7 +24,7 @@ jobs:
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          charts_dir: ../kafka_backend,../kafka_client_consumer  # Notez qu'il n'y a pas d'espace après la virgule
+          charts_dir: kafka_backend,kafka_client_consumer  # Suppression des ./ et ../
           target_dir: .
           branch: ${{ env.BRANCH_PAGES }}
           charts_url: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.BRANCH_PAGES }}
