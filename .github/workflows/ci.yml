@@ -21,11 +21,14 @@ jobs:
         with:
           ref: main
 
+      - name: Print pwd 
+        run: pwd
+
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          charts_dir: ../kafka_backend/
+          charts_dir: ..
           target_dir: .
           branch: ${{ env.BRANCH_PAGES }}
           charts_url: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.BRANCH_PAGES }}
