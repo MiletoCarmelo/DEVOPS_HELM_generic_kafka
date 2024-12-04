@@ -1,0 +1,31 @@
+# kafka_monitoring/values.yaml
+serviceMonitor:
+  enabled: true
+  namespace: kafka-dev
+  interval: 30s
+  scrapeTimeout: 10s
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 15s
+
+prometheusRules:
+  enabled: true
+  rules:
+    - alert: KafkaNoActiveControllers
+      expr: kafka_controller_kafkacontroller_activecontrollercount < 1
+      for: 5m
+      labels:
+        severity: critical
+      annotations:
+        summary: No active Kafka controller
+        description: There is no active Kafka controller for more than 5 minutes
+
+    - alert: KafkaUnderReplicatedPartitions
+      expr: kafka_server_replicamanager_underreplicatedpartitions > 0
+      for: 10m
+      labels:
+        severity: warning
+      annotations:
+        summary: Kafka under replicated partitions
+        description: There are under replicated partitions

@@ -1,0 +1,6 @@
+# kafka_monitoring/Chart.yaml
+apiVersion: v2
+name: generic-kafka-monitoring
+description: Monitoring configuration for Kafka using Prometheus Operator
+version: 0.1.0
+type: application

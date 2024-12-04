@@ -1,0 +1,18 @@
+# kafka_monitoring/templates/servicemonitor.yaml
+{{- if .Values.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "kafka-monitoring.fullname" . }}
+  labels:
+    {{- include "kafka-monitoring.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      app: kafka
+  namespaceSelector:
+    matchNames:
+      - {{ .Values.serviceMonitor.namespace }}
+  endpoints:
+    {{- toYaml .Values.serviceMonitor.endpoints | nindent 4 }}
+{{- end }}
