@@ -13,9 +13,9 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-12-03T21:16:35.958044181Z"
+    created: "2024-12-04T07:07:47.991388598Z"
     description: A Helm chart for kubernetes - Generic kafka backend
-    digest: 776bf95e9895940c7a131399b5db77f7ffcbd542d278e305b63cb5c0751b62bb
+    digest: 18f916b892586ec50ebd41134bc48f25b1dfc2bade278dcd0812608fed3ecf67
     name: generic-kafka-backend
     type: application
     urls:
@@ -93,9 +93,9 @@ entries:
     version: 0.1.0
   generic-kafka-client-consumer:
   - apiVersion: v2
-    created: "2024-12-03T21:16:35.958256998Z"
+    created: "2024-12-04T07:07:47.991587131Z"
     description: A simple Kafka console consumer chart
-    digest: b63ce86331c548b7fa6f13a6653005ecf60420da2f770dc5f74b32a082ee4f35
+    digest: 93e831dcf0c89436c6d6d3be36f8bf97c078e7134198ef17709b50b84e272ed6
     name: generic-kafka-client-consumer
     type: application
     urls:
@@ -110,6 +110,16 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/generic-kafka-client-consumer-0.1.0.tgz
     version: 0.1.0
+  generic-kafka-monitoring:
+  - apiVersion: v2
+    created: "2024-12-04T07:07:47.991821881Z"
+    description: Monitoring configuration for Kafka using Prometheus Operator
+    digest: 6f06544309a436144c6ddc37f13c540877f2c4bcf18262554ce430a5965033a2
+    name: generic-kafka-monitoring
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/generic-kafka-monitoring-0.1.0.tgz
+    version: 0.1.0
   kafka-client-consumer:
   - apiVersion: v2
     created: "2024-12-03T15:09:09.707010675Z"
@@ -120,4 +130,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/kafka-client-consumer-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-03T21:16:35.95751781Z"
+generated: "2024-12-04T07:07:47.990893289Z"
