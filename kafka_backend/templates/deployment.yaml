@@ -1,9 +1,8 @@
-# deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    {{-  include "label-generator" . | nindent 4 }}
+    {{- include "label-generator" . | nindent 4 }}
     module: {{ .Values.module }}
   name: {{ .Values.module }}-{{ .Values.environment }}-deployment
   namespace: {{ .Values.module }}-{{ .Values.environment }}
@@ -37,8 +36,10 @@ spec:
               port: 9092
             initialDelaySeconds: 60
             periodSeconds: 20
+          env:
+            - name: KAFKA_TOPICS
+              value: "{{ .Values.kafka.topics | join \",\" }}"
       {{- if .Values.volumes }}
       volumes:
         {{- toYaml .Values.volumes | nindent 12 }}
       {{- end }}
-            
