@@ -1,7 +1,7 @@
 # values.yaml
 module: kafka
 environment: generic
-replicas: 2
+replicas: 3
 
 containers:
   name: kafka
