@@ -38,7 +38,8 @@ spec:
             periodSeconds: 20
           env:
             - name: KAFKA_TOPICS
-              value: "{{ .Values.topics | toJson }}"
+              value: 
+                {{ toYaml .Values.topics | nindent 12 }}
       {{- if .Values.volumes }}
       volumes:
         {{- toYaml .Values.volumes | nindent 12 }}
