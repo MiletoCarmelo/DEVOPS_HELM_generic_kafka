@@ -13,9 +13,9 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-12-08T22:28:02.791991226Z"
+    created: "2024-12-08T22:52:32.77086569Z"
     description: A Helm chart for kubernetes - Generic kafka backend
-    digest: e79b388ca25146e956b132d716e3278e7d7b9227765be23bb4dad2433e367ec5
+    digest: e5d8bfb361717398a6fb2b819ff342908dde5d6b7b7e282324dc7c5f76991472
     name: generic-kafka-backend
     type: application
     urls:
@@ -93,9 +93,9 @@ entries:
     version: 0.1.0
   generic-kafka-client-consumer:
   - apiVersion: v2
-    created: "2024-12-08T22:28:02.792213165Z"
+    created: "2024-12-08T22:52:32.771289611Z"
     description: A simple Kafka console consumer chart
-    digest: 862b729d6e85ca99621d52c3f1aaa08281c3a9de961d1d9dfb0ed6960b76f4da
+    digest: 0418fbe72fb1074306ad377e2860f3c6ba87a1f701854c269710dcc771f8ad1a
     name: generic-kafka-client-consumer
     type: application
     urls:
@@ -130,4 +130,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/kafka-client-consumer-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-08T22:28:02.791435426Z"
+generated: "2024-12-08T22:52:32.769824046Z"
