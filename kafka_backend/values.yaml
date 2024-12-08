@@ -3,6 +3,11 @@ module: kafka
 environment: generic
 replicas: 3
 
+topics:
+  - name: "generic-topic"
+    partitions: 3
+    replicationFactor: 1  # Assurez-vous que ce nombre est inférieur ou égal au nombre de réplicas Kafka
+
 containers:
   name: kafka
   image: bitnami/kafka
