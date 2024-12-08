@@ -43,7 +43,7 @@ volumeMounts:
 
 zookeeper:
   enabled: true
-  replicaCount: 2
+  replicaCount: 3
   persistence:
     enabled: true
     size: 5Gi
