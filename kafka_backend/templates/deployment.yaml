@@ -38,7 +38,7 @@ spec:
             periodSeconds: 20
           env:
             - name: KAFKA_TOPICS
-              value: "{{ .Values.topics | join ',' }}"
+              value: "{{ .Values.kafka.topics | map 'name' | join ',' }}"  # Liste des noms des topics Kafka comme variable d'environnement
       {{- if .Values.volumes }}
       volumes:
         {{- toYaml .Values.volumes | nindent 12 }}
