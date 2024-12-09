@@ -1,7 +1,7 @@
 # values.yaml
 # Default values
 module: "kafka"
-environment: "default"
+environment: "generic"
 
 # Topics configuration
 topics:
