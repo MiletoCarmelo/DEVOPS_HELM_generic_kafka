@@ -1,0 +1,11 @@
+# kafka-cluster/values.yaml
+kafka:
+  version: 3.8.0
+  replicas: 3
+  replicationFactor: 3
+  storage:
+    size: 5Gi
+zookeeper:
+  replicas: 3
+  storage:
+    size: 5Gi

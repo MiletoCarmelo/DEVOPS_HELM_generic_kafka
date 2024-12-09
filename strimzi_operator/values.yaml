@@ -1,0 +1,5 @@
+# values par défaut pour l'opérateur Strimzi
+strimzi-kafka-operator:
+  watchNamespaces: []
+  kubernetesServiceDnsDomain: cluster.local
+  createGlobalResources: true

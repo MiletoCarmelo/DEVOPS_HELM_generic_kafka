@@ -1,0 +1,6 @@
+# kafka-cluster/Chart.yaml
+apiVersion: v2
+name: generic-kafka-cluster
+description: A Helm chart for Strimzi Kafka Cluster
+type: application
+version: 0.1.0
