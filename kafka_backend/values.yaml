@@ -1,11 +1,13 @@
 # values.yaml
 module: kafka
 environment: generic
-
 topics:
 - name: "generic-topic"
   partitions: 3
-  replicationFactor: 1  # Assurez-vous que ce nombre est inférieur ou égal au nombre de réplicas Kafka
+  replicationFactor: 1
+- name: "test-topic"
+  partitions: 2
+  replicationFactor: 1
 
 server: 
   file: "server.properties"
