@@ -25,6 +25,7 @@ spec:
       - id: 0
         type: persistent-claim
         size: {{ .Values.kafka.storage.size }}
+        class: local-path  # ✅ À ajouter
   zookeeper:
     replicas: {{ .Values.zookeeper.replicas }}
     storage:
