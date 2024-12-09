@@ -1,11 +1,15 @@
 # templates/pvc.yaml
+
+# Kafka PVCs
+{{- range $i, $replica := until .Values.kafka.replicas }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: data-{{ .Release.Name }}-kafka-0
+  name: data-0-{{ .Release.Name }}-kafka-{{ $i }}
   namespace: {{ .Release.Namespace }}
   labels:
     app: kafka
+    replica: "{{ $i }}"
 spec:
   accessModes:
     - ReadWriteOnce
@@ -13,15 +17,20 @@ spec:
     requests:
       storage: {{ .Values.kafka.storage.size }}
   storageClassName: {{ .Values.kafka.storage.class }}
+{{- end }}
 
 ---
+
+# Zookeeper PVCs
+{{- range $i, $replica := until .Values.zookeeper.replicas }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: data-{{ .Release.Name }}-zookeeper-0
+  name: data-{{ .Release.Name }}-zookeeper-{{ $i }}
   namespace: {{ .Release.Namespace }}
   labels:
     app: zookeeper
+    replica: "{{ $i }}"
 spec:
   accessModes:
     - ReadWriteOnce
@@ -29,3 +38,4 @@ spec:
     requests:
       storage: {{ .Values.zookeeper.storage.size }}
   storageClassName: {{ .Values.zookeeper.storage.class }}
+{{- end }}
