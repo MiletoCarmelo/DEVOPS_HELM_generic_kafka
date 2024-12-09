@@ -31,3 +31,4 @@ spec:
     storage:
       type: persistent-claim
       size: {{ .Values.zookeeper.storage.size }}
+      class: local-path  # Ajouter ceci

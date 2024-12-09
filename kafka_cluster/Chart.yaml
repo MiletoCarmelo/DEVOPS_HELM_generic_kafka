@@ -4,3 +4,4 @@ name: generic-kafka-cluster
 description: A Helm chart for Strimzi Kafka Cluster
 type: application
 version: 0.1.0
+icon: https://kafka.apache.org/images/apache-kafka.png

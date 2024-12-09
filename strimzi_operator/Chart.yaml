@@ -7,3 +7,5 @@ dependencies:
   - name: strimzi-kafka-operator
     version: 0.44.0
     repository: https://strimzi.io/charts/
+
+icon: https://kafka.apache.org/images/apache-kafka.png
