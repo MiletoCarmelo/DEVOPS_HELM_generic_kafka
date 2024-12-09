@@ -3,7 +3,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   labels:
-    {{- if $.Values.cluster.name }}
+    {{- if and (hasKey $.Values "cluster") (hasKey $.Values.cluster "name") }}
     strimzi.io/cluster: {{ $.Values.cluster.name }}
     {{- else }}
     strimzi.io/cluster: {{ $.Release.Name }}
