@@ -9,7 +9,8 @@ image:
 # Utiliser le nom complet du service
 # => kubectl get ns kafka-dev
 # => kubectl get svc -n kafka-dev
-kafkaBootstrapServers: "kafka-dev-service.kafka-dev.svc.cluster.local:9092"
+# kafkaBootstrapServers: "kafka-dev-service.kafka-dev.svc.cluster.local:9092"
+kafkaBootstrapServers: "kafka-dev-kafka-bootstrap.kafka-dev.svc.cluster.local:9092"
 topic: "finance-price-stream"
 
 resources:
