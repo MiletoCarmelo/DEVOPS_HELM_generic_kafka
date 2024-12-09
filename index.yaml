@@ -13,9 +13,9 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-12-08T22:52:32.77086569Z"
+    created: "2024-12-09T07:52:06.99626272Z"
     description: A Helm chart for kubernetes - Generic kafka backend
-    digest: e5d8bfb361717398a6fb2b819ff342908dde5d6b7b7e282324dc7c5f76991472
+    digest: 1d7d06f998329d5d1a0116c6d19f43a010e2e2207f950ab71c7c52efa6c2f77c
     name: generic-kafka-backend
     type: application
     urls:
@@ -93,9 +93,9 @@ entries:
     version: 0.1.0
   generic-kafka-client-consumer:
   - apiVersion: v2
-    created: "2024-12-08T22:52:32.771289611Z"
+    created: "2024-12-09T07:52:06.996477704Z"
     description: A simple Kafka console consumer chart
-    digest: 0418fbe72fb1074306ad377e2860f3c6ba87a1f701854c269710dcc771f8ad1a
+    digest: 3132f27109af1ab06bb6470800b17227a939a6cbdffa497cf2b0d2fa010a0066
     name: generic-kafka-client-consumer
     type: application
     urls:
@@ -110,6 +110,16 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/generic-kafka-client-consumer-0.1.0.tgz
     version: 0.1.0
+  generic-kafka-cluster:
+  - apiVersion: v2
+    created: "2024-12-09T07:52:06.996642553Z"
+    description: A Helm chart for Strimzi Kafka Cluster
+    digest: 0b5c5d3ac00d34fdd43095db9e1551f549c2e0ea7ebaa29966482405f15028cc
+    name: generic-kafka-cluster
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/generic-kafka-cluster-0.1.0.tgz
+    version: 0.1.0
   generic-kafka-monitoring:
   - apiVersion: v2
     created: "2024-12-04T07:07:47.991821881Z"
@@ -119,6 +129,20 @@ entries:
     type: application
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/generic-kafka-monitoring-0.1.0.tgz
+    version: 0.1.0
+  generic-strimzi-operator:
+  - apiVersion: v2
+    created: "2024-12-09T07:52:07.002429192Z"
+    dependencies:
+    - name: strimzi-kafka-operator
+      repository: https://strimzi.io/charts/
+      version: 0.44.0
+    description: A Helm chart for Strimzi Kafka Operator
+    digest: 4e9f53c248a30e383d4221bd11c4f84e4a3e903e2cade4d3ea30fccf8c8a143e
+    name: generic-strimzi-operator
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/generic-strimzi-operator-0.1.0.tgz
     version: 0.1.0
   kafka-client-consumer:
   - apiVersion: v2
@@ -130,4 +154,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/kafka-client-consumer-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-08T22:52:32.769824046Z"
+generated: "2024-12-09T07:52:06.995695214Z"
