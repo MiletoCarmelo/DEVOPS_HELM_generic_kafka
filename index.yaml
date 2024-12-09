@@ -3,9 +3,9 @@ entries:
   generic-kafka-backend:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-12-09T11:10:18.306575399Z"
+    created: "2024-12-09T12:10:56.084112044Z"
     description: A Helm chart for kubernetes - Generic kafka backend
-    digest: 06bf853697d83617f66e65469ab671b8eb1793dc4f3a9c750a7ba804310427be
+    digest: e8aff77f0ce4cdf3d530bcad67933261ba720082918a76c49d20a35dd1ca0350
     icon: https://kafka.apache.org/images/apache-kafka.png
     name: generic-kafka-backend
     type: application
@@ -104,9 +104,9 @@ entries:
     version: 0.1.0
   generic-kafka-client-consumer:
   - apiVersion: v2
-    created: "2024-12-09T11:10:18.306886349Z"
+    created: "2024-12-09T12:10:56.084326375Z"
     description: A simple Kafka console consumer chart
-    digest: 3a6b5daa44303b83ccedfe67df23cb4a6afde8dd0dc03220dbf5cd1fb06c8c5a
+    digest: c3554a991069c8da359ae4a96dd829296ddb1c862a6bf55e0c4836726efaa7e6
     icon: https://kafka.apache.org/images/apache-kafka.png
     name: generic-kafka-client-consumer
     type: application
@@ -124,9 +124,9 @@ entries:
     version: 0.1.0
   generic-kafka-cluster:
   - apiVersion: v2
-    created: "2024-12-09T11:10:18.307135525Z"
+    created: "2024-12-09T12:10:56.084522362Z"
     description: A Helm chart for Strimzi Kafka Cluster
-    digest: ee17e4722c6dd49ff3c4caa4f29bd721949db3c7cd0814fd4332a76ef6fb3df4
+    digest: c10843b7cc7fce4443e17efbc630732a1179fbfa0b3246272845ef288c8eb6bf
     icon: https://kafka.apache.org/images/apache-kafka.png
     name: generic-kafka-cluster
     type: application
@@ -145,13 +145,13 @@ entries:
     version: 0.1.0
   generic-strimzi-operator:
   - apiVersion: v2
-    created: "2024-12-09T11:10:18.3157547Z"
+    created: "2024-12-09T12:10:56.089672934Z"
     dependencies:
     - name: strimzi-kafka-operator
       repository: https://strimzi.io/charts/
       version: 0.44.0
     description: A Helm chart for Strimzi Kafka Operator
-    digest: 9f0fbbedfd8335febf331426b2dd3786338f9c3d181b709a306a943af2051fb1
+    digest: e3a9e6141b9785b7f9ffa697b2200c5015b4d44a7cef65a069b739f2059ceacb
     icon: https://kafka.apache.org/images/apache-kafka.png
     name: generic-strimzi-operator
     type: application
@@ -168,4 +168,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_backend/github-pages/kafka-client-consumer-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-09T11:10:18.306113547Z"
+generated: "2024-12-09T12:10:56.08375169Z"
