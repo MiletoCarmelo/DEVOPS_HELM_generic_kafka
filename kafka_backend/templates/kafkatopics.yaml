@@ -3,7 +3,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   labels:
-    strimzi.io/cluster: kafka
+    strimzi.io/cluster: {{ $.Values.cluster.name }}
   name: {{ $topic.name }}
   namespace: {{ $.Values.module }}-{{ $.Values.environment }}  # Notez le $
 spec:

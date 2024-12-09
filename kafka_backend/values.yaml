@@ -3,6 +3,9 @@
 module: "kafka"
 environment: "generic"
 
+cluster: 
+  name: kafka-generic  # Cette valeur doit correspondre au nom de votre cluster Kafka
+
 # Topics configuration
 topics:
   - name: "test-topic"
