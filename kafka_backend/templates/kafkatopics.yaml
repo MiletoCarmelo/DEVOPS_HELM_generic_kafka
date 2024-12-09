@@ -3,9 +3,9 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   labels:
-    strimzi.io/cluster: {{ $.Release.Name }}  # {{ $.Values.cluster.name }}
+    strimzi.io/cluster: {{ $.Release.Name }}
   name: {{ $topic.name }}
-  namespace: {{ $.Values.module }}-{{ $.Values.environment }}  # Notez le $
+  namespace: {{ $.Values.module }}-{{ $.Values.environment }} 
 spec:
   config:
     retention.ms: "540000"
