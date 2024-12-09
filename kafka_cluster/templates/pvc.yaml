@@ -1,7 +1,8 @@
 # templates/pvc.yaml
 
 # Kafka PVCs
-{{- range $i, $replica := until .Values.kafka.replicas }}
+{{- range $i, $replica := until (int .Values.kafka.replicas) }}
+{{- printf "replicas: %v\n" .Values.kafka.replicas | indent 2 }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -22,7 +23,8 @@ spec:
 ---
 
 # Zookeeper PVCs
-{{- range $i, $replica := until .Values.zookeeper.replicas }}
+{{- range $i, $replica := until (int .Values.zookeeper.replicas) }}
+{{- printf "replicas: %v\n" .Values.zookeeper.replicas | indent 2 }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
