@@ -3,8 +3,9 @@
 module: "kafka"
 environment: "generic"
 
-# cluster: 
-#   name: {{ .Release.Name }}  # Cette valeur doit correspondre au nom de votre cluster Kafka
+kafka:
+  cluster:
+    name: kafka-generic
 
 # Topics configuration
 topics:
