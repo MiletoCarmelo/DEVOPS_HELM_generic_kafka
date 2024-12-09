@@ -1,0 +1,31 @@
+# templates/pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-{{ .Release.Name }}-kafka-0
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: kafka
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.kafka.storage.size }}
+  storageClassName: {{ .Values.kafka.storage.class }}
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-{{ .Release.Name }}-zookeeper-0
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: zookeeper
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.zookeeper.storage.size }}
+  storageClassName: {{ .Values.zookeeper.storage.class }}
