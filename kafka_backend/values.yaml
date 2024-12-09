@@ -1,20 +1,16 @@
 # values.yaml
 # Default values
-module: "generic"
-environment: "generic"
+module: "kafka"
+environment: "default"
 
 # Topics configuration
 topics:
   - name: "test-topic"
     partitions: 1
     replicationFactor: 1
-    module: "kafka"
-    environment: "generic"
   - name: "generic-topic"
     partitions: 3
     replicationFactor: 1
-    module: "kafka"
-    environment: "generic"
 
 # Server configuration
 server:

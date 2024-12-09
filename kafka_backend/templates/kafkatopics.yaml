@@ -1,15 +1,14 @@
 {{- range $topic := .Values.topics }}
----
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   labels:
     strimzi.io/cluster: kafka
   name: {{ $topic.name }}
-  namespace: {{ .Values.module }}-{{ .Values.environment }}  # ✅
+  namespace: {{ $.Values.module }}-{{ $.Values.environment }}  # Notez le $
 spec:
   config:
-    retention.ms: "540000"  # Valeur par défaut si non spécifiée
+    retention.ms: "540000"
   partitions: {{ $topic.partitions }}
   replicas: {{ $topic.replicationFactor }}
   topicName: {{ $topic.name | replace "-" "." }}
